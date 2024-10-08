@@ -1,0 +1,124 @@
+{
+  "places": [
+    {
+      "id": 1,
+      "name": "Dubai",
+      "desc": "The city of gold and grass",
+      "images": [
+        {
+          "id": 1,
+          "url": "Dubai.jpg"
+        },
+        {
+          "id": 2,
+          "url": "Dubai_1.jpg"
+        },
+        {
+          "id": 3,
+          "url": "Dubai_2.jpg"
+        },
+        {
+          "id": 4,
+          "url": "Dubai_3.jpg"
+        },
+        {
+          "id": 5,
+          "url": "Dubai_4.jpg"
+        },
+        {
+          "id": 6,
+          "url": "Dubai_5.jpg"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Saudi Arabia",
+      "desc": "Mother of cities",
+      "images": [
+        {
+          "id": 1,
+          "url": "Saudi.jpg"
+        },
+        {
+          "id": 2,
+          "url": "Saudi_1.jpg"
+        },
+        {
+          "id": 3,
+          "url": "Saudi_2.jpg"
+        },
+        {
+          "id": 4,
+          "url": "Saudi_3.jpg"
+        },
+        {
+          "id": 5,
+          "url": "Saudi_4.jpg"
+        },
+        {
+          "id": 6,
+          "url": "Saudi_5.jpg"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Kerala",
+      "desc": "Tropical Getaway",
+      "images": [
+        {
+          "id": 1,
+          "url": "Kerala.jpg"
+        },
+        {
+          "id": 2,
+          "url": "Kerala_1.jpg"
+        },
+        {
+          "id": 3,
+          "url": "Kerala_2.jpg"
+        },
+        {
+          "id": 4,
+          "url": "Kerala_3.jpg"
+        },
+        {
+          "id": 5,
+          "url": "Kerala_4.jpg"
+        },
+        {
+          "id": 6,
+          "url": "Kerala_5.jpg"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Hyderabad",
+      "desc": "A Blend of History and Modernity.",
+      "images": [
+        {
+          "id": 1,
+          "url": "Hyder.jpg"
+        },
+        {
+          "id": 2,
+          "url": "Hyder_1.jpg"
+        },
+        {
+          "id": 3,
+          "url": "Hyder_2.jpg"
+        },
+        {
+          "id": 4,
+          "url": "Hyder_3.jpg"
+        },
+        {
+          "id": 5,
+          "url": "Hyder_4.jpg"
+        }
+      ]
+    }
+  ]
+}

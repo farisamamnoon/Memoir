@@ -14,7 +14,21 @@
 }
 
 body {
-  width: 80%;
-  max-width: 1000px;
+  /* margin: 2rem; */
+  width: 90%;
+  max-width: 1500px;
+  font-size: clamp(18px, 1vw, 30px);
   margin-inline: auto;
+}
+
+.main-heading {
+  margin: 3rem;
+  height: 1em;
+  text-align: center;
+  text-wrap: nowrap;
+  font-weight: 600;
+  font-size: clamp(35px, 4vw, 70px);
+
+  text-decoration: underline;
+  text-underline-offset: 2rem;
 }

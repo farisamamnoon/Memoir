@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Dash from "./pages/Dash";
 import Places from "./pages/Places";
+// import { getTemp } from "./pages/FullScreen";
 
 export const router = createBrowserRouter([
   {
@@ -8,7 +9,8 @@ export const router = createBrowserRouter([
     element: <Dash />,
   },
   {
-    path: "/:id",
+    path: "/place/:id",
     element: <Places />,
+    // loader: getTemp,
   },
 ]);

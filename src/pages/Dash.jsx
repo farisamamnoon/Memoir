@@ -1,6 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-import "./App.css";
+import styles from "./Dash.module.css";
+import data from "../data/data.json";
 
 function Dash() {
   const navigate = useNavigate();
@@ -8,29 +9,19 @@ function Dash() {
   return (
     <>
       <h1 className="main-heading">Memoir</h1>
-
-      <div className="card-container">
-        <div className="card" onClick={() => navigate("/1")}>
-          <img src="/Dubai.jpg" />
-          <h3>Dubai</h3>
-          <p>The far fetched Middle East</p>
-          <p>Wed Jul 22 2012</p>
-          <button>More</button>
-        </div>
-        <div className="card" onClick={() => navigate("/1")}>
-          <img src="/Dubai.jpg" />
-          <h3>Dubai</h3>
-          <p>The far fetched Middle East</p>
-          <p>Wed Jul 22 2012</p>
-          <button>More</button>
-        </div>
-        <div className="card" onClick={() => navigate("/1")}>
-          <img src="/Dubai.jpg" />
-          <h3>Dubai</h3>
-          <p>The far fetched Middle East</p>
-          <p>Wed Jul 22 2012</p>
-          <button>More</button>
-        </div>
+      <div className={styles["card-container"]}>
+        {data.places.map((place) => (
+          <div
+            className={styles.card}
+            onClick={() => navigate(`/place/${place.id}`)}
+            key={place.id}
+          >
+            <img src={`images/${place.images[0].url}`} />
+            <h3>{place.name}</h3>
+            <p>{place.desc}</p>
+            <button>More</button>
+          </div>
+        ))}
       </div>
     </>
   );
