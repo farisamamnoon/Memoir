@@ -1,0 +1,16 @@
+.loading {
+  background: linear-gradient(to right, #e0d4cc, hsl(24, 15%, 95%), #e0d4cc);
+  background-size: 200% 100%;
+  width: 250px;
+  height: 350px;
+  animation: loadingGradient 2s infinite;
+}
+
+@keyframes loadingGradient {
+  0% {
+    background-position: 200%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}

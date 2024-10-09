@@ -23,7 +23,7 @@ body {
 
 .main-heading {
   margin: 3rem;
-  height: 1em;
+  height: 2em;
   text-align: center;
   text-wrap: nowrap;
   font-weight: 600;
@@ -31,4 +31,23 @@ body {
 
   text-decoration: underline;
   text-underline-offset: 2rem;
+}
+
+.error-boundary {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.error-boundary h1 {
+  font-size: clamp(50px, 5vw, 120px);
+}
+
+.error-boundary p {
+  font-size: clamp(10px, 2.5vw, 60px);
+}
+
+.error-boundary button {
+  font-size: clamp(10px, 2.5vw, 60px);
 }

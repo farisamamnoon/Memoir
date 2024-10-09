@@ -1,43 +1,81 @@
-import { useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import styles from "./Places.module.css";
-import data from "../data/data.json";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import FullScreen from "./FullScreen";
+import Image from "../components/Image";
 
 function Places() {
-  const id = useParams().id;
-  const [fullscreen, setFullScreen] = useState(false);
-  const [image, setImage] = useState("");
+  const { success, message, data } = useLoaderData();
+  const [fullscreen, setFullScreen] = useState({
+    open: false,
+    cid: "",
+  });
 
   const handleOpen = (img) => {
-    setImage(img);
-    setFullScreen(true);
+    setFullScreen({
+      open: true,
+      cid: img,
+    });
   };
   const handleClose = () => {
-    setImage("");
-    setFullScreen(false);
+    setFullScreen({
+      open: false,
+      cid: "",
+    });
   };
 
-  const here = data.places.filter((p) => p.id == id)[0];
+  if (!success) {
+    return (
+      <div className="error-boundary">
+        <h1>Error</h1>
+        <p>{message}</p>
+        <button onClick={() => window.location.reload()}>Refresh</button>
+      </div>
+    );
+  }
 
   return (
     <>
-      <h1 className="main-heading">{here.name}</h1>
+      <h1 className="main-heading">{data.name}</h1>
 
       <div className={styles["card-container"]}>
-        {here.images.map((img) => (
+        {data.images.map((img) => (
           <div
             className={styles.card}
             key={img.id}
             onClick={() => handleOpen(img.url)}
           >
-            <img src={`../../images/${img.url}`} />
+            <Image cid={img.url} />
           </div>
         ))}
       </div>
-      {fullscreen && <FullScreen image={image} handleClose={handleClose} />}
+      {fullscreen.open && (
+        <FullScreen image={fullscreen.cid} handleClose={handleClose} />
+      )}
     </>
   );
 }
 
 export default Places;
+
+export async function placeLoader({ params }) {
+  try {
+    const response = await fetch(`http://localhost:8000/${params.id}`);
+    if (!response.ok) {
+      throw new Error("There has been an error");
+    }
+    const result = await response.json();
+
+    return {
+      success: true,
+      message: "",
+      data: result.data,
+    };
+  } catch (err) {
+    return {
+      success: false,
+      message: err.message,
+      data: null,
+    };
+  }
+}
