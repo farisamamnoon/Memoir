@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./Image.module.css";
 
-export default function Image({ cid }) {
+export default function Image({ fullScreenLoading, cid, options }) {
   const [image, setImage] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -10,17 +10,18 @@ export default function Image({ cid }) {
     const fetchImage = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:8000/photos/${cid}`);
+        let query = "";
+        if (options) {
+          query = new URLSearchParams(options).toString();
+        }
+        const response = await fetch(
+          `http://localhost:8000/photos/${cid}?${query}`
+        );
         if (!response.ok) {
           throw new Error("There was an error on our side");
         }
         const data = await response.blob();
         const url = URL.createObjectURL(data);
-        await new Promise((res) => {
-          setTimeout(() => {
-            res();
-          }, 3000);
-        });
         setLoading(false);
         setImage(url);
       } catch (error) {
@@ -40,7 +41,13 @@ export default function Image({ cid }) {
   }
 
   if (loading) {
-    return <div className={styles.loading} />;
+    return (
+      <div
+        className={
+          fullScreenLoading ? styles["loading-fullscreen"] : styles.loading
+        }
+      />
+    );
   }
 
   return <img src={image} alt="Image of a place" />;

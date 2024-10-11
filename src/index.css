@@ -36,18 +36,23 @@ body {
 .error-boundary {
   height: 100vh;
   display: grid;
+  gap: 1em;
   place-content: center;
-  text-align: center;
 }
 
 .error-boundary h1 {
+  margin: auto;
   font-size: clamp(50px, 5vw, 120px);
 }
 
 .error-boundary p {
   font-size: clamp(10px, 2.5vw, 60px);
+  margin: auto;
 }
 
 .error-boundary button {
-  font-size: clamp(10px, 2.5vw, 60px);
+  font-size: clamp(10px, 1.5vw, 60px);
+  width: max-content;
+  margin: auto;
+  padding: 0.2em 0.5em;
 }

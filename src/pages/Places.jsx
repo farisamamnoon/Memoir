@@ -45,7 +45,7 @@ function Places() {
             key={img.id}
             onClick={() => handleOpen(img.url)}
           >
-            <Image cid={img.url} />
+            <Image cid={img.url} options={{quality: 30}}/>
           </div>
         ))}
       </div>

@@ -24,10 +24,15 @@ const getPlaceById = async (req, res) => {
 
 const getImageByCID = async (req, res) => {
   const { cid } = req.params;
+  const options = Object.fromEntries(new URLSearchParams(req.query));
   try {
-    // const image = await pinata.gateways.get(cid);
+    //GOES TO PINATA AND FETCH it BACK..create a binary and res.send to the client
+    // const image = await pinata.gateways.get(cid).optimizeImage(options);
     // const buffer = Buffer.from(await image.data.arrayBuffer());
     // res.set("Content-Type", image.contentType);
+    // res.status(200).send(buffer);
+
+    //FOR DEV PURPOSES... I have ONLY 7000 of the 10000 requests available...
     res.set("Content-Type", "image/jpeg");
     const IMAGE = PATH.join(IMAGE_DIR, `${cid}.jpg`);
     res.status(200).sendFile(IMAGE);

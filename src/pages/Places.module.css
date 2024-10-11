@@ -24,12 +24,13 @@
 .card img {
   width: 100%;
   object-fit: fill;
+  border-radius: 5px;
 }
 
 .model-container {
   position: fixed;
   inset: 0px;
-  background-color: hsla(24, 24%, 34%, 0.700);
+  background-color: hsla(24, 24%, 34%, 0.7);
   overflow: scroll;
 }
 

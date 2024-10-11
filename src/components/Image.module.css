@@ -5,6 +5,13 @@
   height: 350px;
   animation: loadingGradient 2s infinite;
 }
+.loading-fullscreen {
+  background: linear-gradient(to right, #e0d4cc, hsl(24, 15%, 95%), #e0d4cc);
+  background-size: 200% 100%;
+  width: 100%;
+  height: 100%;
+  animation: loadingGradient 2s infinite;
+}
 
 @keyframes loadingGradient {
   0% {

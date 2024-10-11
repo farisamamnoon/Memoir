@@ -5,7 +5,7 @@ function FullScreen({ image, handleClose }) {
   return (
     <div className={styles["model-container"]} onClick={handleClose}>
       <div className={styles["fullscreen-image"]}>
-        {image && <Image className={styles.image} cid={image} />}
+        {image && <Image fullScreenLoading cid={image} />}
       </div>
     </div>
   );
