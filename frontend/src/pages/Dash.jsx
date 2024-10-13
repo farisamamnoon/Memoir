@@ -32,7 +32,7 @@ function Dash() {
 export default Dash;
 
 export async function dashLoader() {
-  const response = await fetch("https://memoir-backend-84ny.onrender.com");
+  const response = await fetch("http://localhost:8000");
   if (!response.ok) {
     throw new Error("There has been an error");
   }

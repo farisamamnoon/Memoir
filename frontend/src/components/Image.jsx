@@ -15,7 +15,7 @@ export default function Image({ fullScreenLoading, cid, options }) {
           query = new URLSearchParams(options).toString();
         }
         const response = await fetch(
-          `https://memoir-backend-84ny.onrender.com/photos/${cid}?${query}`
+          `http://localhost:8000/photos/${cid}?${query}`
         );
         if (!response.ok) {
           throw new Error("There was an error on our side");

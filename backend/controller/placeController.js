@@ -27,15 +27,15 @@ const getImageByCID = async (req, res) => {
   const options = Object.fromEntries(new URLSearchParams(req.query));
   try {
     //GOES TO PINATA AND FETCH it BACK..create a binary and res.send to the client
-    const image = await pinata.gateways.get(cid).optimizeImage(options);
-    const buffer = Buffer.from(await image.data.arrayBuffer());
-    res.set("Content-Type", image.contentType);
-    res.status(200).send(buffer);
+    // const image = await pinata.gateways.get(cid).optimizeImage(options);
+    // const buffer = Buffer.from(await image.data.arrayBuffer());
+    // res.set("Content-Type", image.contentType);
+    // res.status(200).send(buffer);
 
     //FOR DEV PURPOSES... I have ONLY 7000 of the 10000 requests available...
-    // res.set("Content-Type", "image/jpeg");
-    // const IMAGE = PATH.join(IMAGE_DIR, `${cid}.jpg`);
-    // res.status(200).sendFile(IMAGE);
+    res.set("Content-Type", "image/jpeg");
+    const IMAGE = PATH.join(IMAGE_DIR, `${cid}.jpg`);
+    res.status(200).sendFile(IMAGE);
   } catch (error) {
     if (error instanceof RangeError) {
       return res.status(500).json({

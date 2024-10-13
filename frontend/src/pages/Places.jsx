@@ -60,7 +60,7 @@ export default Places;
 
 export async function placeLoader({ params }) {
   try {
-    const response = await fetch(`https://memoir-backend-84ny.onrender.com/${params.id}`);
+    const response = await fetch(`http://localhost:8000/${params.id}`);
     if (!response.ok) {
       throw new Error("There has been an error");
     }

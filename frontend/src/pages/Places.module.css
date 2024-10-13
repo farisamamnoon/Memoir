@@ -1,24 +1,15 @@
 .card-container {
   width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
+  columns: 3 300px;
+  column-gap: 0.4em;
 }
 
 .card {
-  padding: 2rem;
-  width: 15em;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
   overflow: hidden;
   transition: all 300ms;
 }
 .card:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
 .card img {
